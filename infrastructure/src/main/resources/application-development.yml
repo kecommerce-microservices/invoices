@@ -24,19 +24,8 @@ spring:
     locations: classpath:db/migration
 
 otel:
-  exporter:
-    otlp:
-      endpoint: ""
-    logging:
-      enabled: false
-    jaeger:
-      enabled: false
-    zipkin:
-      enabled: false
-  metrics:
-    exporter: none
-  traces:
-    exporter: none
+  sdk:
+    disabled: true
 
 # otel:
 #   exporter:
