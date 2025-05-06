@@ -1,6 +1,4 @@
 application:
-  otel:
-    memory-exporter: true
   name: template
   instance: template-01
 
@@ -28,5 +26,20 @@ spring:
 otel:
   exporter:
     otlp:
-      endpoint: http://localhost:4318
-      compression: gzip
+      endpoint: ""
+    logging:
+      enabled: false
+    jaeger:
+      enabled: false
+    zipkin:
+      enabled: false
+  metrics:
+    exporter: none
+  traces:
+    exporter: none
+
+# otel:
+#   exporter:
+#     otlp:
+#       endpoint: http://localhost:4318
+#       compression: gzip
