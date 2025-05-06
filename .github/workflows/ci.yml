@@ -121,7 +121,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
       
       - name: Set project version
-        run: echo "PROJECT_VERSION=$(./gradlew showVersion)" >> $GITHUB_ENV
+        run: echo "PROJECT_VERSION=$(./gradlew showVersion -q | tail -n 1)" >> $GITHUB_ENV
 
       - name: Set build version and branch name tag
         run: |
