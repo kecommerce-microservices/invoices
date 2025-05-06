@@ -125,8 +125,9 @@ jobs:
 
       - name: Set build version and branch name tag
         run: |
-          echo BUILD_TAG=$(echo ${{ github.ref_name }} | "s,/,_,g")-${{ env.PROJECT_VERSION }}  >> $GITHUB_ENV
-
+          SANITIZED_BRANCH=$(echo "${{ github.ref_name }}" | sed 's/[\/]/_/g')
+          echo "BUILD_TAG=${SANITIZED_BRANCH}-${PROJECT_VERSION}" >> $GITHUB_ENV
+          
       - name: Print BUILD_TAG
         run: |
           echo "Branch    --> ${{ github.ref_name }}"
