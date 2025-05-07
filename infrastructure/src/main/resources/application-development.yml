@@ -1,4 +1,6 @@
 application:
+  otel:
+    memory-exporter: true
   name: template
   instance: template-01
 
