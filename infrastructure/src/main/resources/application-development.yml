@@ -36,9 +36,9 @@ management:
       otlp:
         enabled: false
 
-otel:
-  sdk:
-    disabled: true
+#otel:
+#  sdk:
+#    disabled: true
 
 # otel:
 #   exporter:

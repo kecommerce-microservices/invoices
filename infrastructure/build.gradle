@@ -7,7 +7,7 @@ plugins {
     id 'org.flywaydb.flyway' version '10.13.0'
 }
 
-group = 'com.devkit.invoices'
+group = 'com.devkit.invoices.infrastructure'
 
 bootJar {
     archiveFileName = 'application.jar'
