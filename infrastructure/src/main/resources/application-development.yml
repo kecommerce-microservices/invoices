@@ -13,6 +13,9 @@ server:
       io: 2
 
 spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.actuate.autoconfigure.metrics.export.otlp.OtlpMetricsExportAutoConfiguration
   datasource: # change this configurations to your database
     url: jdbc:postgresql://localhost:5434/template
     username: postgres
