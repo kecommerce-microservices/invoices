@@ -9,7 +9,7 @@ idempotency-key:
 logging:
   level:
     ROOT: WARN
-    com.kaua.devkit.invoices: DEBUG
+    com.devkit.invoices.infrastructure: DEBUG
 
 server:
   port: 8080
@@ -19,7 +19,7 @@ server:
     enabled: true
     mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
     min-response-size: 1024
-  undertow:
+  tomcat:
     threads:
       worker: 64
       io: 4
