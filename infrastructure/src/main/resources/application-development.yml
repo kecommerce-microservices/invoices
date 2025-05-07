@@ -24,6 +24,8 @@ spring:
     locations: classpath:db/migration
 
 management:
+  tracing:
+    enabled: false
   metrics:
     export:
       otlp:
