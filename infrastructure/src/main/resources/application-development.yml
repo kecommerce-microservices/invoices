@@ -29,6 +29,9 @@ spring:
     locations: classpath:db/migration
 
 management:
+  health:
+    redis:
+      enabled: false
   tracing:
     enabled: false
   metrics:
