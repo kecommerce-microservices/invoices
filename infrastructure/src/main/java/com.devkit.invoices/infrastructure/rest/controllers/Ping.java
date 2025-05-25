@@ -22,6 +22,6 @@ public class Ping {
         log.info("pong");
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(Map.of("Pong", InstantUtils.now().toString()));
+                .body(Map.of("Pong main", InstantUtils.now().toString()));
     }
 }
