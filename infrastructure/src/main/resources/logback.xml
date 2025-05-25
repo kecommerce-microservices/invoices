@@ -1,7 +1,7 @@
 <configuration>
-    <import class="ch.qos.logback.core.ConsoleAppender" />
-    <import class="ch.qos.logback.core.FileAppender" />
-    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder" />
+    <import class="ch.qos.logback.core.ConsoleAppender"/>
+    <import class="ch.qos.logback.core.FileAppender"/>
+    <import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
 
     <appender name="OTEL" class="io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender">
         <captureExperimentalAttributes>true</captureExperimentalAttributes>
@@ -12,7 +12,8 @@
     </appender>
 
     <appender name="stdout_plain" class="ConsoleAppender">
-        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder"> <!-- https://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/ -->
+        <encoder
+                class="ch.qos.logback.core.encoder.LayoutWrappingEncoder"> <!-- https://www.codelord.net/2010/08/27/logging-with-a-context-users-in-logback-and-spring-security/ -->
             <layout class="com.devkit.invoices.infrastructure.configurations.logback.PatternLayoutWithAttributes">
                 <pattern> <!-- https://github.com/onready/demo-spring-security-logging-pattern -->
                     %d{HH:mm:ss.SSSZZ} [%thread] [%X{traceId}] [%X{spanId}] [%user] %-5level %logger{36} - %msg%n
@@ -21,16 +22,16 @@
         </encoder>
     </appender>
 
-    <logger name="ch.qos.logback" level="WARN" />
-    <logger name="org.mortbay.log" level="WARN" />
-    <logger name="org.springframework" level="INFO" />
-    <logger name="org.springframework.beans" level="WARN" />
+    <logger name="ch.qos.logback" level="WARN"/>
+    <logger name="org.mortbay.log" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.beans" level="WARN"/>
 
     <!-- enable DEBUG only for the application -->
-    <logger name="store" level="DEBUG" />
+    <logger name="store" level="DEBUG"/>
 
     <root level="INFO">
-        <appender-ref ref="OTEL" />
-        <appender-ref ref="stdout_plain" />
+        <appender-ref ref="OTEL"/>
+        <appender-ref ref="stdout_plain"/>
     </root>
 </configuration>

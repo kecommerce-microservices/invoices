@@ -3,7 +3,7 @@ plugins {
     id 'java-conventions'
 }
 
-group = 'com.devkit.invoices'
+group = 'com.devkit.invoices.domain'
 
 dependencies {
     implementation 'net.datafaker:datafaker:2.0.1'

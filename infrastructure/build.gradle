@@ -7,7 +7,7 @@ plugins {
     id 'org.flywaydb.flyway' version '10.13.0'
 }
 
-group = 'com.devkit.invoices'
+group = 'com.devkit.invoices.infrastructure'
 
 bootJar {
     archiveFileName = 'application.jar'
@@ -31,9 +31,9 @@ dependencies {
     implementation(project(":domain"))
 
     implementation('org.springframework.boot:spring-boot-starter-web') {
-        exclude module: 'spring-boot-starter-tomcat'
+//        exclude module: 'spring-boot-starter-tomcat'
     }
-    implementation 'org.springframework.boot:spring-boot-starter-undertow'
+//    implementation 'org.springframework.boot:spring-boot-starter-undertow'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
@@ -84,7 +84,8 @@ jacocoTestReport {
                 files(classDirectories.files.collect {
                     fileTree(dir: it, exclude: [
                             'com.devkit.invoices/infrastructure/configurations/*',
-                            'com.devkit.invoices/infrastructure/Main.class'
+                            'com.devkit.invoices/infrastructure/Main.class',
+                            'com.devkit.invoices/infrastructure/rest/controllers/Ping.class'
                     ])
                 })
         )
@@ -106,7 +107,8 @@ testCodeCoverageReport {
                 files(classDirectories.files.collect {
                     fileTree(dir: it, exclude: [
                             'com.devkit.invoices/infrastructure/configurations/*',
-                            'com.devkit.invoices/infrastructure/Main.class'
+                            'com.devkit.invoices/infrastructure/Main.class',
+                            'com.devkit.invoices/infrastructure/rest/controllers/Ping.class'
                     ])
                 })
         )
@@ -119,7 +121,8 @@ jacocoTestCoverageVerification {
                 files(classDirectories.files.collect {
                     fileTree(dir: it, exclude: [
                             'com.devkit.invoices/infrastructure/configurations/*',
-                            'com.devkit.invoices/infrastructure/Main.class'
+                            'com.devkit.invoices/infrastructure/Main.class',
+                            'com.devkit.invoices/infrastructure/rest/controllers/Ping.class'
                     ])
                 })
         )

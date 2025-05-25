@@ -3,7 +3,7 @@ plugins {
     id 'java-conventions'
 }
 
-group = 'com.devkit.invoices'
+group = 'com.devkit.invoices.application'
 
 dependencies {
     implementation(project(':domain'))

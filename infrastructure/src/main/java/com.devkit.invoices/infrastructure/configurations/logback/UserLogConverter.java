@@ -11,13 +11,33 @@ public class UserLogConverter extends ClassicConverter {
 
     @Override
     public String convert(final ILoggingEvent event) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null) {
-            return "anonymous"; // anonymous user
-        }
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return "anonymous";
+            }
 
-        final var aUser = (UserAuthentication) authentication.getPrincipal();
-        final var aAuthenticatedUser = (AuthenticatedUser) aUser.getPrincipal();
-        return aAuthenticatedUser.id();
+            if (!(authentication.getPrincipal() instanceof UserAuthentication userAuth)) {
+                return "unknown";
+            }
+
+            Object principal = userAuth.getPrincipal();
+            if (principal instanceof AuthenticatedUser authenticatedUser) {
+                return authenticatedUser.id(); // ou .getId() dependendo do tipo
+            }
+
+            return "unknown";
+        } catch (Exception e) {
+            return "error";
+        }
     }
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication == null) {
+//            return "anonymous"; // anonymous user
+//        }
+//
+//        final var aUser = (UserAuthentication) authentication.getPrincipal();
+//        final var aAuthenticatedUser = (AuthenticatedUser) aUser.getPrincipal();
+//        return aAuthenticatedUser.id();
+//    }
 }
