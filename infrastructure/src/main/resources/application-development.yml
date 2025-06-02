@@ -1,6 +1,6 @@
 application:
   otel:
-    memory-exporter: true
+    memory-exporter: false
   name: template
   instance: template-01
 
@@ -15,9 +15,9 @@ server:
       io: 2
 
 spring:
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.actuate.autoconfigure.metrics.export.otlp.OtlpMetricsExportAutoConfiguration
+  # autoconfigure:
+  #   exclude:
+  #     - org.springframework.boot.actuate.autoconfigure.metrics.export.otlp.OtlpMetricsExportAutoConfiguration
   datasource: # change this configurations to your database
     url: jdbc:postgresql://localhost:5434/template
     username: postgres
@@ -32,18 +32,22 @@ management:
   health:
     redis:
       enabled: false
-  tracing:
-    enabled: false
-  metrics:
-    export:
-      otlp:
-        enabled: false
+  # tracing:
+  #   enabled: false
+  # metrics:
+  #   export:
+  #     otlp:
+  #       enabled: false
 
 #otel:
 #  logs:
 #    exporter: none
 
-#otel:
+# otel:otel:
+#  exporter:
+#    otlp:
+#      endpoint: http://localhost:4318
+#      compression: gzip
 #  exporter:
 #    otlp:
 #      endpoint: http://localhost:4318
