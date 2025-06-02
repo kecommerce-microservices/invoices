@@ -63,6 +63,13 @@ spring:
 
 # expondo rotas: /actuator/<health, info, metrics>
 management:
+  otlp:
+    metrics:
+      export:
+        url: ${otel.exporter.otlp.endpoint}
+        resourceAttributes:
+          serviceName: ${application.name:template}
+          environment: ${application.environment:dev}
   endpoints.web.exposure.include: "*"
   tracing:
     enabled: true
