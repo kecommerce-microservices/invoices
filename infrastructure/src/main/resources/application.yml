@@ -66,9 +66,9 @@ management:
   otlp:
     metrics:
       export:
-        url: ${otel.exporter.otlp.endpoint}
+        url: ${otel.exporter.otlp.endpoint}/v1/metrics
         resourceAttributes:
-          serviceName: ${application.name:template}
+          service.name: ${application.name:template}
           environment: ${application.environment:dev}
   endpoints.web.exposure.include: "*"
   tracing:
