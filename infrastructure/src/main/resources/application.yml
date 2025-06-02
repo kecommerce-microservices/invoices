@@ -104,3 +104,4 @@ otel: # https://medium.com/@yangli136/how-opentelemetry-is-integrated-with-sprin
     attributes:
       service:
         name: template
+        environment: dev
