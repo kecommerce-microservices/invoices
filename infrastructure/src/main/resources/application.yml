@@ -108,6 +108,4 @@ otel: # https://medium.com/@yangli136/how-opentelemetry-is-integrated-with-sprin
       interval: 10s
 #    exporter: none change to otlp
   resource:
-    attributes:
-      service.name: template
-      environment: dev
+    attributes: "service.name=invoices,environment=dev"
