@@ -70,6 +70,15 @@ management:
         resourceAttributes:
           service.name: ${application.name:template}
           deployment.environment.name: ${application.environment:dev}
+        step: 30s
+        batchSize: 10000
+      enable-all: true
+      distribution:
+        percentiles-histogram:
+          http:
+            server:
+              requests: true
+        slo[http.server.requests]: "25ms, 50ms, 100ms, 200ms, 400ms, 800ms, 1500ms"
   endpoints.web.exposure.include: "*"
   tracing:
     enabled: true
@@ -77,7 +86,7 @@ management:
       probability: 1.0
   metrics:
     tags:
-      application: ${application.name:template}
+      application: ${application.name:invoices}
       instance: ${application.instance:template-01}
     export:
       otlp:
