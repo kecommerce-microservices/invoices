@@ -69,7 +69,7 @@ management:
         url: ${otel.exporter.otlp.endpoint}/v1/metrics
         resourceAttributes:
           service.name: ${application.name:template}
-          environment: ${application.environment:dev}
+          deployment.environment.name: ${application.environment:dev}
   endpoints.web.exposure.include: "*"
   tracing:
     enabled: true
@@ -109,6 +109,8 @@ otel: # https://medium.com/@yangli136/how-opentelemetry-is-integrated-with-sprin
 #    exporter: none change to otlp
   resource:
     attributes:
-      environment: dev
+      deployment:
+        environment:
+          name: ${application.environment:dev}
       service:
         name: invoices
