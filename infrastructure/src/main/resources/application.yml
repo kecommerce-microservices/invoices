@@ -100,6 +100,9 @@ management:
       slo[http.server.requests]: "25ms, 50ms, 100ms, 200ms, 400ms, 800ms, 1500ms"
 
 otel: # https://medium.com/@yangli136/how-opentelemetry-is-integrated-with-spring-boot-application-7e309efc0011
+  instrumentation:
+    micrometer:
+      enabled: true
   metrics:
     enabled: true
     export:
